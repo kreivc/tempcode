@@ -9,6 +9,7 @@ export default function Code() {
 	const router = useRouter();
 	const { id } = router.query;
 	const [code, setCode] = useState("");
+	const [language, setLanguage] = useState('text');
 
 	useEffect(() => {
 		let mounted = true;
@@ -32,7 +33,7 @@ export default function Code() {
 				<title>Tempcode</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Nav />
+			<Nav onChange={v => setLanguage(v)} />
 			<div className="flex py-[1rem] px-[0.5rem] text-[1rem]">
 				<div className="text-[#7D7D7D] text-[end]">
 					{sideNum?.map((line, index) => (
@@ -41,7 +42,7 @@ export default function Code() {
 				</div>
 				<pre className="whitespace-pre text-[#7D7D7D]">
 					<code
-						className="language-jsx"
+						className={`language-${language}`}
 						style={{ paddingTop: "0", paddingBottom: "0" }}
 					>
 						{`${code}`}

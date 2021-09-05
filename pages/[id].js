@@ -1,14 +1,20 @@
 import Head from "next/head";
 import { useState } from "react";
-import Sidebar from "../component/sidebar";
+import Nav from "../components/Nav";
 
 export default function Code() {
-	const [code, setCode] =
-		useState(`Welcome to Tempcode use the command top right
-
-testing pre tag for temp code
-heheheh
-asdasddas`);
+	const [code, setCode] = useState(`// tailwind.config.js
+module.exports = {
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}`);
 	const sideNum = code.split("\n");
 	return (
 		<div className="">
@@ -16,7 +22,7 @@ asdasddas`);
 				<title>Tempcode</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Sidebar />
+			<Nav />
 			<div className="flex py-[1rem] px-[0.5rem] text-[1rem]">
 				<div className="text-[#7D7D7D] text-[end]">
 					{sideNum?.map((line, index) => (

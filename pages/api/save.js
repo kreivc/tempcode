@@ -6,12 +6,12 @@ connectDB();
 export default async (req, res) => {
 	switch (req.method) {
 		case "POST":
-			await getCode(req, res);
+			await postCode(req, res);
 			break;
 	}
 };
 
-const getCode = async (req, res) => {
+const postCode = async (req, res) => {
 	const value = req.body.value;
 	try {
 		const code = await Code.create({ value });

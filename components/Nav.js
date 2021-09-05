@@ -5,13 +5,16 @@ export default function Nav() {
 				Tempcode
 			</a>
 			<div className="flex mx-3">
-				<a
-					href="#"
+				<button
 					className="text-base py-1 px-4 bg-gray-200 text-black rounded-md mr-2"
+					type="submit"
 				>
 					New
-				</a>
-				<button className="text-base py-1 px-4 bg-gray-200 text-black rounded-md">
+				</button>
+				<button
+					className="text-base py-1 px-4 bg-gray-200 text-black rounded-md"
+					type="submit"
+				>
 					Save
 				</button>
 			</div>

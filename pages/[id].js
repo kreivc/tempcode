@@ -17,8 +17,8 @@ asdasddas`);
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Sidebar />
-			<div class="flex py-[1rem] px-[0.5rem] text-[1rem]">
-				<div class="text-[#7D7D7D] text-[end]">
+			<div className="flex py-[1rem] px-[0.5rem] text-[1rem]">
+				<div className="text-[#7D7D7D] text-[end]">
 					{sideNum?.map((line, index) => (
 						<div>{index + 1}</div>
 					))}

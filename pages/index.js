@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
 import { useState } from "react";
-import { postData } from "../../nextjs-ecommerce/utils/fetchData";
+import { postData } from "../utils/fetchData";
 import Nav from "../components/Nav";
 import { useRouter } from "next/router";
 
@@ -14,7 +14,7 @@ export default function Home() {
 
 		try {
 			const res = await postData("save", { value: code });
-			console.log(res._id);
+			router.push(res._id);
 		} catch (err) {
 			console.log(err);
 		}

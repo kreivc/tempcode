@@ -12,5 +12,5 @@ const codeSchema = new mongoose.Schema(
 
 codeSchema.index({ createdAt: 1 }, { expireAfterSeconds: 259200 }); //3 days
 
-let Dataset = mongoose.models.product || mongoose.model("code", codeSchema);
-export default Dataset;
+let Code = mongoose.models.code || mongoose.model("code", codeSchema);
+export default Code;

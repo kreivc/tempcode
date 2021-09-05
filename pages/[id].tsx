@@ -1,20 +1,29 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Nav from "../components/Nav";
+import axios from "axios";
+import { useRouter } from "next/router";
+import Script from "next/script";
 
 export default function Code() {
-	const [code, setCode] = useState(`// tailwind.config.js
-module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-}`);
+	const router = useRouter();
+	const { id } = router.query;
+	const [code, setCode] = useState("");
+
+	useEffect(() => {
+		let mounted = true;
+		(async () => {
+			if (id !== undefined) {
+				const res = await axios.get(`/api/${id}`);
+				if (mounted) {
+					setCode(res.data.value);
+				}
+			}
+		})();
+		return () => {
+			mounted = false;
+		};
+	}, [id]);
 
 	const sideNum = code.split("\n");
 	return (
@@ -27,18 +36,19 @@ module.exports = {
 			<div className="flex py-[1rem] px-[0.5rem] text-[1rem]">
 				<div className="text-[#7D7D7D] text-[end]">
 					{sideNum?.map((line, index) => (
-						<div>{index + 1}</div>
+						<div key={index}>{index + 1}</div>
 					))}
 				</div>
-				<pre className="whitespace-pre">
+				<pre className="whitespace-pre text-[#7D7D7D]">
 					<code
-						className="language-plaintext"
+						className="language-jsx"
 						style={{ paddingTop: "0", paddingBottom: "0" }}
 					>
 						{`${code}`}
 					</code>
 				</pre>
 			</div>
+			<Script>hljs.highlightAll();</Script>
 		</div>
 	);
 }

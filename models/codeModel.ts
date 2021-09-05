@@ -6,6 +6,10 @@ const codeSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		language: {
+			type: String,
+			default: "text",
+		},
 	},
 	{ timestamps: true }
 );

@@ -22,14 +22,13 @@ class MyDocument extends Document {
 						crossOrigin="anonymous"
 						referrerPolicy="no-referrer"
 					/>
-					<script>hljs.highlightAll();</script>
 					<script
 						src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/5.0.0/autosize.min.js"
 						integrity="sha512-zibtOTbkMuTivXGk5b8yJFGLIB1jF90NuV7gwNcVWL3xZx/I1HdkXU2pCZhadsuaS5HMUzabvRqK4WmWeKrwUg=="
 						crossOrigin="anonymous"
 						referrerPolicy="no-referrer"
 					></script>
-					
+
 					<style>{`
 						body {
 							background-color: #002b36;

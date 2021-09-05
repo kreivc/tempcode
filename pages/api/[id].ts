@@ -18,7 +18,7 @@ const getCode = async (req: NextApiRequest, res: NextApiResponse) => {
 		const code = await Code.findById(id);
 
 		res.status(200).json(code);
-	} catch (err) {
+	} catch (err: any) {
 		return res.status(500).json(err.message);
 	}
 };

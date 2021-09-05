@@ -15,6 +15,7 @@ module.exports = {
   },
   plugins: [],
 }`);
+
 	const sideNum = code.split("\n");
 	return (
 		<div className="">

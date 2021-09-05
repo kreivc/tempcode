@@ -1,20 +1,21 @@
 import Head from "next/head";
 import Script from "next/script";
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { postData } from "../utils/fetchData";
 import Nav from "../components/Nav";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 export default function Home() {
-	const [code, setCode] = useState();
+	const [code, setCode] = useState('');
 	const router = useRouter();
 
-	const handleSubmit = async (e) => {
+	const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
 		e.preventDefault();
 
 		try {
-			const res = await postData("save", { value: code });
-			router.push(res._id);
+			const res = await axios.post('/api/save', { value: code });
+			router.push(res.data._id);
 		} catch (err) {
 			console.log(err);
 		}

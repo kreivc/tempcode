@@ -1,9 +1,10 @@
 import connectDB from "../../utils/connectDB";
 import Code from "../../models/codeModel";
+import { NextApiRequest, NextApiResponse } from "next";
 
 connectDB();
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
 	switch (req.method) {
 		case "POST":
 			await postCode(req, res);
@@ -11,7 +12,7 @@ export default async (req, res) => {
 	}
 };
 
-const postCode = async (req, res) => {
+const postCode = async (req: NextApiRequest, res: NextApiResponse) => {
 	const value = req.body.value;
 	try {
 		const code = await Code.create({ value });

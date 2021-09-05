@@ -1,9 +1,10 @@
 import connectDB from "../../utils/connectDB";
 import Code from "../../models/codeModel";
+import { NextApiRequest, NextApiResponse } from "next";
 
 connectDB();
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
 	switch (req.method) {
 		case "GET":
 			await getCode(req, res);
@@ -11,8 +12,8 @@ export default async (req, res) => {
 	}
 };
 
-const getCode = async (req, res) => {
-	const id = req.params.id;
+const getCode = async (req: NextApiRequest, res: NextApiResponse) => {
+	const id = req.query.id;
 	try {
 		const code = await Code.findById(id);
 

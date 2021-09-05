@@ -10,7 +10,7 @@ const codeSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-codeSchema.index({ createdAt: 1 }, { expireAfterSeconds: 259200 }); //3 days
+codeSchema.index({ createdAt: 1 }, { expireAfterSeconds: 60 });
 
 let Code = mongoose.models.code || mongoose.model("code", codeSchema);
 export default Code;
